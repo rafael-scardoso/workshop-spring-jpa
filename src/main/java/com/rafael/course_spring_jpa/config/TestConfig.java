@@ -14,8 +14,11 @@ import com.rafael.course_spring_jpa.repositories.UserRepository;
 @Profile("test")
 public class TestConfig implements CommandLineRunner{
 		
-	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
+
+	TestConfig(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
